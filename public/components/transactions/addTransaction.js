@@ -35,7 +35,7 @@ export default class extends PureComponent {
                     <FormComponent name="addTransaction" initialValues={{ user: null, transactionAmount: null, transactionType: null }} onSubmit={this.addNewTransaction}>
                         <ul className="add-transaction-form-sec">
                             <li>
-                                <RadioButtonGroup options={users} name="user" validate={true} keyName="userName" customClass="custom-radio-btn-no-label" />
+                                <RadioButtonGroup options={users} name="user" validate={true} keyName="userName" customClass="custom-radio-btn-no-label" selectedClass="custom-radio-btn-selected"/>
                             </li>
                             <li>
                                 <RadioButtonGroup options={transactionTypes} name="transactionType" validate={true} keyName="transactiontype" customClass="custom-radio-btn-label" />

@@ -4374,6 +4374,9 @@ button {
               top: 6px; }
             .user-transaction-details-sec .add-transaction-sec .add-transaction-form-sec li label.custom-radio-btn-label:last-child {
               margin-top: 0; }
+          .user-transaction-details-sec .add-transaction-sec .add-transaction-form-sec li label.custom-radio-btn-selected {
+            background: #FFF;
+            color: #000; }
         .user-transaction-details-sec .add-transaction-sec .add-transaction-form-sec li:last-child {
           margin-right: 0;
           margin-top: 33px; }

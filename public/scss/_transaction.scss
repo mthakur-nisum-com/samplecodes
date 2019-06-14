@@ -71,6 +71,10 @@
                             margin-top: 0;
                         }
                     }
+                    &.custom-radio-btn-selected {
+                        background: #FFF;
+                        color:#000;
+                    }
                 }
 
                 &:last-child {

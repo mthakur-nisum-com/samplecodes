@@ -21,12 +21,13 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
         </Fragment>
     )
 }
-const RadioBtnGrp = ({ input, options, meta: { touched, error, warning }, keyName , customClass} ) => {
+const RadioBtnGrp = ({ input, options, meta: { touched, error, warning }, keyName , customClass , selectedClass} ) => {
+    const {value} = input;
     return (<Fragment>
         {options.map((option, index) => {
             return (
                 <Fragment key={index}>
-                    <label className={customClass}>{option[keyName]}
+                    <label className={value && value[keyName] === option[keyName]?`${selectedClass} ${customClass}`:`${customClass}`}>{option[keyName]}
                         <input name={input.name} onChange={event => {
                             return input.onChange(event.target.checked ? option : null);
                         }} id={index} key={index} type="radio" />
@@ -39,4 +40,4 @@ const RadioBtnGrp = ({ input, options, meta: { touched, error, warning }, keyNam
     </Fragment>)
 };
 export const Input = ({ name, validate, warning, type, id }) => (<Field name={name} type={type} component={renderField} validate={checkValidations(name, validate)} id={id} />);
-export const RadioButtonGroup = ({ name, validate, warning=[], options , keyName , customClass=''}) => <Field component={RadioBtnGrp} name={name} validate={checkValidations(name, validate)} warning={warning} options={options} keyName={keyName} customClass={customClass}/>
+export const RadioButtonGroup = ({ name, validate, warning=[], options , keyName , customClass='' , selectedClass=''}) => <Field component={RadioBtnGrp} name={name} validate={checkValidations(name, validate)} warning={warning} options={options} keyName={keyName} customClass={customClass} selectedClass={selectedClass}/>

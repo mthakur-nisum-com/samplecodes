@@ -260,13 +260,17 @@ const RadioBtnGrp = ({
     warning
   },
   keyName,
-  customClass
+  customClass,
+  selectedClass
 }) => {
+  const {
+    value
+  } = input;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, options.map((option, index) => {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
       key: index
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-      className: customClass
+      className: value && value[keyName] === option[keyName] ? `${selectedClass} ${customClass}` : `${customClass}`
     }, option[keyName], react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       name: input.name,
       onChange: event => {
@@ -301,7 +305,8 @@ const RadioButtonGroup = ({
   warning = [],
   options,
   keyName,
-  customClass = ''
+  customClass = '',
+  selectedClass = ''
 }) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
   component: RadioBtnGrp,
   name: name,
@@ -309,7 +314,8 @@ const RadioButtonGroup = ({
   warning: warning,
   options: options,
   keyName: keyName,
-  customClass: customClass
+  customClass: customClass,
+  selectedClass: selectedClass
 });
 
 /***/ }),
@@ -547,7 +553,8 @@ let _class = (_dec = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])
       name: "user",
       validate: true,
       keyName: "userName",
-      customClass: "custom-radio-btn-no-label"
+      customClass: "custom-radio-btn-no-label",
+      selectedClass: "custom-radio-btn-selected"
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_common_customControls__WEBPACK_IMPORTED_MODULE_3__["RadioButtonGroup"], {
       options: transactionTypes,
       name: "transactionType",
